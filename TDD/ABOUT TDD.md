@@ -33,11 +33,11 @@ MOCK
 
 => 이렇게 모의 객체를 생성하여 검증, 스텁을 지원하는 프레임워크로 Mockito가 있음
 
-₩₩₩
+```
 dependencies {
     testImplementation 'org.mockito:mockito-core:4.8.0'
 }
-₩₩₩
+```
 gradle 의 경우
 위처럼 의존성에 mocikto 추가해서 사용할 수 있다.
 
