@@ -1,5 +1,62 @@
 # 1. equals / hashcode에 대해서
 
+최상위 클래스인 Objects 클래스에서 equals 메서드는 다음과 같이 구현되어있다.
+
+```
+public boolean equals(Object obj) {
+    return (this == obj);
+}
+
+```
+
+메모리 내 주소값이 같은지만 비교하고 있기 때문에, 객체끼리의 동일성을 담보한다.
+
+만약 주소값이 아닌 값이 동등한지(동등성)를 체킹하고 싶다면, 해당 메서드를 오버라이딩하여, 해당 클래스의 특정 값들의 비교 기준을 정하여 재정의하면 된다.
+
+보통 아래와 같은 순서로 재정의한다.
+
+1. 동일한 주소값을 가지는지 비교
+2. null 혹은 동일한 클래스인지 비교
+3. 타입 캐스팅
+4. 프로그래머가 지정한 필드 비교
+
+```
+  @Override
+  public boolean equals(Object o) {
+    // 순서 1. 동일한 참조 값인지 비교
+    if (this == o) return true;
+    // 순서 2. null 또는 동일한 클래스인지 비교
+    if (o == null || getClass() != o.getClass()) return false;
+    // 순서 3. 타입 변환
+    Sample sample = (Sample) o;
+    // 순서 4. 필드 비교
+    return Objects.equals(fieldName, sample.fieldName) && Objects.equals(fieldName2, sample.fieldName2);
+  }
+```
+
+다음으로 hashcode는 실행중의 객체의 유일한 메모리 주소를 반환하는 메서드이다. heap에 저장된 객체의 메모리 주소를 반환한다.
+Objects 클래스에 구현된 hashCode() 메서드는 다음과 같다.
+
+```
+public static int hashCode(Object o) {
+
+    return o != null ? o.hashCode() : 0;
+
+}
+```
+
+자바의 컬렉션 프레임워크, 가령 HashSet이 해쉬 테이블을 사용하여 해시 값이 같은지 비교하기 때문에
+Set에 동등성을 기준으로 중복체킹을 하고 싶다면 hashcode를 오버라이딩하여 equals에 정의한 기준으로 구현해야 한다.
+
+```
+    @Override
+    public int hashCode() {
+        // 그렇다면 반드시 hashCode()도 kind와 number를 이용하여 만들어야한다.
+        // 즉 해시코드 비교가 equals와 동일한 결과를 반환하도록 구현해야 한다.
+        return Object.hash(fieldName, fieldName2)
+    }
+```
+
 # 2. List를 사용할 때 add()메서드를 계속 사용해도 계속 들어간다. 그 이유는 무엇일까?
 
 # 3. ArrayList와 LinkedList의 차이는?
