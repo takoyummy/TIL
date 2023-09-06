@@ -15,6 +15,12 @@ hashmap, b-tree, b+tree => 각각 조사
 
 # 3. 그 B+Tree자료구조의 장단점은?
 
+HashMap
+
+B-Tree
+
+B+Tree
+
 장점 :
 
 1. leaf node끼리 linked list로 연결되어있어서, 순차 탐색에 유리하다.
