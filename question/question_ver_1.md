@@ -3,6 +3,8 @@
 공개키 - 비공개키 짝
 
 보낼 평문을 공개키로 암호화하고, 비공개키를 사용해서 암호문을 평문으로 복호화함.
+혹은 반대로 해도 됨.
+일반적으로 하는 건 전자이지만 CA의 방식에서는 후자.
 
 비공개키(자기만 사용하는 private key)가 핵심!
 
@@ -155,3 +157,5 @@ https://d2.naver.com/helloworld/5102792
 
 Was Thread와 Connection Pool의 개수를 잘 조절하여 조정하는게 좋음
 보통 Connection Pool 수보다 Was Thread수를 조금 더 많게 설정함.
+
+=> 회사 Connection Pool 몇 개로 설정되어있는지 여쭙기
