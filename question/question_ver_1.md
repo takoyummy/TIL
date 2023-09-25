@@ -86,7 +86,7 @@ UDP : 데이터를 데이터 그램 단위로 처리하는 프로토콜
 
 # 6. 세션은 왜 필요한가요?
 
-- http통신의 특징은 connectionles(비연결성, 통신 끝나면 연결 끊어버림)s와 stateless(상태를 저장하지 않음)하기 때문에 request할때마다
+- http통신의 특징은 connectionless(비연결성, 통신 끝나면 연결 끊어버림)와 stateless(상태를 저장하지 않음)하기 때문에 request할때마다
   사용자의 개별 상태를 유지하기 위해 세션이 필요함.
 
 # 7. 세션이 발급되고 클라이언트와 연동되는 구체적인 동작 방식에 대해서 설명해주세요. (JSESSIONID 참고)
@@ -159,3 +159,5 @@ Was Thread와 Connection Pool의 개수를 잘 조절하여 조정하는게 좋�
 보통 Connection Pool 수보다 Was Thread수를 조금 더 많게 설정함.
 
 => 회사 Connection Pool 몇 개로 설정되어있는지 여쭙기
+
+=> 시크릿키 살펴보니 max-pool이 10개로 설정되어있는것 확인.
