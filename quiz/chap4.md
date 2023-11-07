@@ -68,6 +68,8 @@ https://pearlluck.tistory.com/712
 
 https://www.youtube.com/watch?v=IdpkfygWIMk
 
+https://jh-7.tistory.com/25
+
 # 4. 상속의 장점? 단점?
 
 ## 장점
@@ -104,7 +106,7 @@ https://www.youtube.com/watch?v=taAp_u83MwA
    가 있어야함.
 
 대상 객체의 메서드를 직접 실행는게 아닌, 대상 객체에 접근하기 전에, Proxy 객체의 메서드를 접근한 후, 추가적인 로직을 처리한 뒤 접근하게 되는 것.
-프록시 객체에서, 대상 객체를 compostion하여, 해당 객체의 메서드 호출시 동작 앞 뒤에 행위를 추가함.
+프록시 객체에서, 대상 객체를 composition하여, 해당 객체의 메서드 호출시 동작 앞 뒤에 행위를 추가함.
 
 # 6. RDB와 MongoDB의 차이는?
 
@@ -122,7 +124,7 @@ NOSQL :
 - 키 - 값
 - 열 지향 및 그래프 모델 포함
 - 구조적 유연성을 제공하며, 데이터를 다른 방식으로 저장할 수 있도록 함
-- 테이블간 관계가 없어, 일반적으로 테이블 간 Join도 불가능함
+- 테이블 간 관계가 없어, 일반적으로 테이블 간 Join도 불가능함
 - Sacle-Out 에 특화되어있음
   ex) Redis, DynamoDB, MongoDB
 
