@@ -83,7 +83,7 @@ Mocikto.mock() 메서드를 사용하여 특정 타입의 객체 생성 가능.
 - mock 객체의 메서드를 실행했을 때 어떤 리턴값을 리턴할지 정하는 것
 - Stubbing을 진행할 때,
   Mockito를 상속한 BDDMockito를 사용추천
-  BDDMockito는 Mocito와 거의 비슷함.
+  BDDMockito는 Mockito와 거의 비슷함.
   가독성을 해치는 Mockito의 일부 코드를 메서드 이름 정도만 바꾼 정도.
   (when() -> given() / verify() -> then()) : given / when / then 구조로 가는 kb의 방법론과 유사.
 
