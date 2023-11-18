@@ -64,3 +64,7 @@
 - @Mock : 해당 필드를 Mock 객체로 만든다.
 - MemberRepository를 생성하여 사용
 - @InjectMocks: Mock또는 실제 인스턴스를 필요로 하는 필드에 자공으로 주입함. 의존하는 객체 주입시켜줌.
+
+# assertThrows()
+
+- 예외가 발생하는 것을 기대하는 Junit assertion메서드
