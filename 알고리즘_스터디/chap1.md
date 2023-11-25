@@ -16,5 +16,9 @@ http://boj.kr/0a44f367f44b4e39b2936a2bcd67189c
 
 http://boj.kr/e719751cc6a540bcbc7e0bcdff2c1ed0
 
+http://boj.kr/27bfc16532a741f88d56fd5fac4a98ec
+
+http://boj.kr/50eba7085a74437da8215e2533c174e6
+
 - 이분탐색은 정보의 범위를 추리기 (parametric search) => 이분탐색
-- 정렬 / 이분탐색 / Hash 스트링 나오는 것
+- 정렬 / 이분탐색 / Hash 스트링 나오는 것ㅎ

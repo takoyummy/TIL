@@ -122,5 +122,39 @@ class Solution {
 243. Group Anagrams
      https://leetcode.com/problems/group-anagrams/
 
+```java
+
+import java.util.Arrays;
+
+
+class Solution {
+    public List<List<String>> groupAnagrams(String[] strs) {
+        Map<String, List<String>> charMap = new HashMap<>();
+
+        for(int i =0; i < strs.length; i++) {
+            char[] chars = strs[i].toCharArray();
+            Arrays.sort(chars);
+            String sortedWord = new String(chars);
+
+            if(!charMap.containsKey(sortedWord)) {
+                charMap.put(sortedWord, new ArrayList<>());
+            }
+
+            List<String> list = charMap.get(sortedWord);
+            list.add(strs[i]);
+
+            charMap.put(sortedWord, list);
+        }
+
+        return new ArrayList<>(charMap.values());
+    }
+}
+
+```
+
+- HashMap 사용
+- Arrays.sort 메서드 사용하여, 키 값 기준으로 알파벳 정렬 시킴
+- 정렬된 알파벳 기준으로, list에 기존 알파벳 값들 넣음
+
 244. Top K Frequent Elements
      https://leetcode.com/problems/top-k-frequent-elements/
