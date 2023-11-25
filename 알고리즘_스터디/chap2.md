@@ -158,3 +158,34 @@ class Solution {
 
 244. Top K Frequent Elements
      https://leetcode.com/problems/top-k-frequent-elements/
+
+```java
+
+class Solution {
+    public int[] topKFrequent(int[] nums, int k) {
+         Map<Integer, Integer> numMap = new HashMap<>();
+
+        for(int i = 0; i < nums.length; i++) {
+
+            if(!numMap.containsKey(nums[i])) {
+                numMap.put(nums[i], 1);
+            }
+            numMap.put(nums[i], numMap.get(nums[i]) + 1);
+        }
+
+        List<Integer> list = new ArrayList<>(numMap.keySet());
+        list.sort((a, b) -> numMap.get(b) - numMap.get(a)); // 내림차순으로 정렬
+        int[] answer = new int[k];
+        for(int i = 0; i < k; i++) {
+            answer[i] = list.get(i);
+        }
+
+        return answer;
+    }
+}
+
+```
+
+- Map으로 key, value 셋팅 후,
+- 사용자정의 sorting 기법 사용. 빈도 수 기준(value)으로 sorting함
+- 내림차순으로 정렬
