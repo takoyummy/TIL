@@ -72,6 +72,53 @@ false라면
 242. Valid Anagram
      https://leetcode.com/problems/valid-anagram/
 
+```java
+
+import java.util.Map;
+import java.util.HashMap;
+
+class Solution {
+    public boolean isAnagram(String s, String t) {
+        Map<Character, Integer> charMap = new HashMap<>();
+
+        for(int i = 0; i < s.length(); i++) {
+            char alpha = s.charAt(i);
+
+            if(charMap.get(alpha) == null) {
+                charMap.put(alpha, 1);
+            } else {
+                charMap.put(alpha, charMap.get(alpha) + 1);
+            }
+
+        }
+
+        for(int i = 0; i < t.length(); i++) {
+            char alpha = t.charAt(i);
+
+            if(charMap.get(alpha) == null) {
+                charMap.put(alpha, -1);
+            } else {
+                charMap.put(alpha, charMap.get(alpha) - 1);
+            }
+        }
+
+        for(int value : charMap.values()) {
+            if(value != 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+}
+
+```
+
+- HashMap 사용해서,
+- 1. key값에 알파벳 값 넣어주고, value에 count 넣어줌
+- 2. t돌때, -1 해줌
+- 3. 결론적으로 value값들을 돌아서 0이 아닌 값들이 있다면 불일치 하는 값이 하나라도 존재하는 것.
+
 243. Group Anagrams
      https://leetcode.com/problems/group-anagrams/
 
