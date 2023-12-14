@@ -40,3 +40,27 @@ ex ) example_column ~ '(.)\\1{3,}'
 (.)는 어떤 한 문자를 캡처하는 그룹. 이 부분은 문자열 내의 단일 문자와 일치
 \\1은 앞서 (.)에 의해 캡처된 그룹, 즉 캡처된 문자를 참조.
 {3,}는 앞선 패턴이 최소 3번 반복되어야 한다는 것을 의미.
+
+# DATE_TRUNC
+
+- postgresql에서 날짜와 시간 데이터를 특정 단위로 자르는 기능을 제공함.
+
+```sql
+DATE_TRUNC('field', source)
+```
+
+- field 이 부분에는 날짜 - 시간 필드를 어떤 단위로 자를 것인지 포함
+- source : 날짜 - 시간 데이터를 포함하는 필드나 표현식 들어감
+
+ex - 월단위 :
+
+```sql
+DATE_TRUNC('month', timestamp_field)
+```
+
+나의 같은 경우에는, 
+
+```sql
+GROUP BY DATE_TRUNC('month', sample.create_date)
+```
+이런 식으로 create_date를 월 별 기준으로 잘라 group by 할 때 사용했음. 
