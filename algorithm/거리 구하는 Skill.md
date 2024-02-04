@@ -6,7 +6,7 @@
 
 for example,
 
-```
+```java
 //위는 3중 for문
 if((Math.abs(a - i) <= 2 || Math.abs(a - i) >= n - 2) && (Math.abs(b - j) <= 2 || Math.abs(b - j) >= n - 2) &&
                             (Math.abs(c - k) <= 2 || Math.abs(c - k) >= n - 2))
