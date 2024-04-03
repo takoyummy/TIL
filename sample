@@ -1,0 +1,44 @@
+package com.example.demo.version
+
+import com.example.demo.common.message.ResponseMessage
+import org.slf4j.LoggerFactory
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.web.bind.annotation.*
+
+@RestController
+@RequestMapping("/version")
+class VersionController(@Autowired val versionCheckManager: VersionCheckManager) {
+    private val log = LoggerFactory.getLogger(this.javaClass)!!
+
+    /**
+     *  TODO 조건에 맞게 재작성과 리팩토링 해주세요
+     */
+    @GetMapping("/check")
+    fun check(@RequestParam os: String, @RequestParam osVer: String, @RequestParam appVer: String): ResponseMessage<VersionResult> {
+        var result: VersionResult = VersionResult.OK
+
+        if (versionCheckManager.needForceUpdate(os, osVer, appVer)) {
+            // Check force update
+            log.info("forceUpdate - {}, {}, {}", os, osVer, appVer)
+            result = VersionResult.FORCE_UPDATE
+        } else if (versionCheckManager.needUpdate(os, appVer)) {
+            // Check ask update
+            result = VersionResult.UPDATE
+        }
+
+        if (needForceUpdateForAndroidUnder_4_89_0(os, osVer, appVer)) {
+            log.info("Android appVer < 4.89.0 issue. Set force update")
+            result = VersionResult.FORCE_UPDATE
+        }
+
+        if ("ios" == os && appVer == "5.42.2") {
+            result = VersionResult.FORCE_UPDATE
+        }
+
+        return result
+    }
+
+    private fun needForceUpdateForAndroidUnder_4_89_0(os: String, osVer: String, appVer: String): Boolean {
+        return os == "android" && VersionUtils.compare(appVer, "4.89.0") < 0 && VersionUtils.getMajorVersion(osVer) == 11
+    }
+}
